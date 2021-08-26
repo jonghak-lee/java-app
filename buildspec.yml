@@ -9,17 +9,16 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 318374019075.dkr.ecr.ap-northeast-2.amazonaws.com
-      - REPOSITORY_URI=318374019075.dkr.ecr.ap-northeast-2.amazonaws.com/apps/java-app
   build:
     commands:
       - echo Build started on `date`
       - mvn package
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:0.0.1-SNAPSHOT .
+      - docker build -t 318374019075.dkr.ecr.ap-northeast-2.amazonaws.com/apps/java-app:0.0.1-SNAPSHOT .
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push $REPOSITORY_URI:0.0.1-SNAPSHOT
+      - docker push 318374019075.dkr.ecr.ap-northeast-2.amazonaws.com/apps/java-app:0.0.1-SNAPSHOT
       - echo Build completed on `date`
 artifacts:
   files:
