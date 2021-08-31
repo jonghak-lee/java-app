@@ -20,9 +20,6 @@ phases:
       - echo Pushing the Docker image...
       - docker push 318374019075.dkr.ecr.ap-northeast-2.amazonaws.com/apps/java-app:0.0.1-SNAPSHOT
       - echo Build completed on `date`
-artifacts:
-  files:
-    - target/demo-0.0.1-SNAPSHOT.jar
 
 cache:
   paths:
